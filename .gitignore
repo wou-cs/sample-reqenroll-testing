@@ -1,0 +1,52 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# ASP.NET specific
+appsettings*.json
+*.db
+*.sqlite
+*.db-journal
+
+# Publish output
+publish/
+
+# User-specific files
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+
+# Others
+*.pdb
+*.cache
+*.log
+*.tlog
+*.tmp
+*.tmp_proj
+*.vspscc
+*.vssscc
