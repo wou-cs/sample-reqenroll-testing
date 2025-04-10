@@ -5,4 +5,7 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div hx-get="/delay" hx-trigger="load">
+        <img alt="Result loading..." class="htmx-indicator" width="150" src="/img/bars.svg"/>
+    </div>
 </div>

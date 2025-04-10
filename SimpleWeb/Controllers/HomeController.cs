@@ -19,6 +19,13 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    [HttpGet("delay")]
+    public async Task<IActionResult> Delay()
+    {
+        await Task.Delay(2000); // Simulate a delay of 2 seconds
+        return Content("This response was delayed by 2 seconds.");
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
