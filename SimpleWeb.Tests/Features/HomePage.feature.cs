@@ -130,7 +130,7 @@ namespace SimpleWeb.Tests.Features
     await testRunner.GivenAsync("I open the home page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
-    await testRunner.ThenAsync("I should see \"delayed by 2 seconds\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("I should see delayed text", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

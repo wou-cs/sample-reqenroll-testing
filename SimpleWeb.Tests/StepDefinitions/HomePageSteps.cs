@@ -19,6 +19,7 @@ namespace SimpleWeb.Tests.Steps
             options.AddArgument("--disable-dev-shm-usage");
 
             _driver = new ChromeDriver(options);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
 
         public void Dispose()
@@ -46,6 +47,13 @@ namespace SimpleWeb.Tests.Steps
         public void ThenIShouldSee(string text)
         {
             Assert.IsTrue(_driver.PageSource.Contains(text));
+        }
+
+        [Then(@"I should see delayed text")]
+        public void ThenIShouldSeeDelayedText()
+        {
+            IWebElement revealed = _driver.FindElement(By.Id("delayed"));
+            Assert.That(revealed.Text, Is.EqualTo("This response was delayed by 2 seconds."));
         }
     }
 }

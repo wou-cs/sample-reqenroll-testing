@@ -24,7 +24,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Delay()
     {
         await Task.Delay(2000); // Simulate a delay of 2 seconds
-        return Content("This response was delayed by 2 seconds.");
+        return Content("<p id=\"delayed\">This response was delayed by 2 seconds.<p>", "text/html");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
