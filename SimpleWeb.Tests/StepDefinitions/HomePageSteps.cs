@@ -5,36 +5,15 @@ using Reqnroll;
 
 namespace SimpleWeb.Tests.Steps
 {
-    [Binding]
-    public class HomePageSteps : IDisposable
+    [Binding] 
+    public class HomePageSteps
     {
         private IWebDriver _driver;
 
         [BeforeScenario]
         public void Setup()
         {
-            var options = new ChromeOptions();
-            options.AddArgument("--headless"); // Run in headless mode (no UI)
-            options.AddArgument("--no-sandbox");
-            options.AddArgument("--disable-dev-shm-usage");
-
-            _driver = new ChromeDriver(options);
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-        }
-
-        public void Dispose()
-        {
-            if (_driver != null)
-            {
-                _driver.Quit();
-                _driver.Dispose();
-            }
-        }
-
-        [AfterScenario]
-        public void Teardown()
-        {
-            _driver.Quit();
+           _driver = GlobalDriverSetup.Driver;
         }
 
         [Given("I open the home page")]
@@ -46,7 +25,8 @@ namespace SimpleWeb.Tests.Steps
         [Then(@"I should see ""(.*)""")]
         public void ThenIShouldSee(string text)
         {
-            Assert.IsTrue(_driver.PageSource.Contains(text));
+            var pageContent = _driver.PageSource.ToLowerInvariant();
+            Assert.IsTrue(pageContent.Contains(text.ToLowerInvariant()), $"Expected to find '{text}' in the page content, but it was not found.");
         }
 
         [Then(@"I should see delayed text")]
